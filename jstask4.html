@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jstask4</title>
+    <h3>jstask4</h3>
+    <style>
+        body {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column; 
+        }
+
+        .button {
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .display {
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button class="button" onclick="showDate()">Show Date</button>
+    <div class="display" id="dateDisplay"></div>
+
+    <button class="button" onclick="showTime()">Show Time</button>
+    <div class="display" id="timeDisplay"></div>
+
+    <script>
+        function formatDate(date) {
+            const options = { day: 'numeric', month: 'long', year: 'numeric' };
+            const parts = new Intl.DateTimeFormat('en-US', options).formatToParts(date);
+            const day = parts.find(part => part.type === 'day').value;
+            const month = parts.find(part => part.type === 'month').value;
+            const year = parts.find(part => part.type === 'year').value;
+            return `${day}/${month}/${year}`;
+        }
+
+        function formatTime(date) {
+            return new Date(date).toString();
+        }
+
+        function showDate() {
+            const dateDisplay = document.getElementById('dateDisplay');
+            const currentDate = new Date('2023-09-24');
+            dateDisplay.textContent = formatDate(currentDate);
+        }
+
+        function showTime() {
+            const timeDisplay = document.getElementById('timeDisplay');
+            const currentDate = new Date();
+            timeDisplay.textContent = formatTime(currentDate);
+        }
+    </script>
+</body>
+</html>

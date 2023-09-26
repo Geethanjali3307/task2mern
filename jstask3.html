@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jstask3</title>
+    <h3>jstask3</h3>
+    <style>
+        body {
+            border: 2px solid black;
+        }
+
+        div,
+        div {
+            padding: 10px;
+        }
+
+        label{
+            font-weight: bolder;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>TASK3</h1>
+    <div class="calc">
+        <div>
+            <label for="firstValue">1st Number:</label>
+            <input type="text" id="firstValue">
+        </div>
+
+        <div>
+            <label for="secondValue">2nd Number:</label>
+            <input type="text" id="secondValue">
+        </div>
+
+        <div>
+            <button onclick="multiply()">Multiply</button>
+            <button onclick="divide()">Divide</button>
+        </div>
+
+        <div id="The result is"></div>
+    </div>
+</body>
+<script>
+    function multiply() {
+        var firstValue = parseFloat(document.getElementById("firstValue").value);
+        var secondValue = parseFloat(document.getElementById("secondValue").value);
+        var result = firstValue * secondValue;
+        document.getElementById("result").innerHTML = "Result: " + result;
+    }
+
+    function divide() {
+        var firstValue = parseFloat(document.getElementById("firstValue").value);
+        var secondValue = parseFloat(document.getElementById("secondValue").value);
+        var result = firstValue / secondValue;
+        document.getElementById("result").innerHTML = "Result: " + result;
+    }
+</script>
+
+</html>
